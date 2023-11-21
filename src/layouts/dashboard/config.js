@@ -80,5 +80,23 @@ export const items = [
         <XCircleIcon />
       </SvgIcon>
     )
-  }
+  },
+  {
+    title: 'Looker',
+    path: '/looker',
+    icon: (
+      <SvgIcon fontSize="small">
+        <XCircleIcon />
+      </SvgIcon>
+    )
+  },
+  {
+    title: 'Chat',
+    path: '/chat',
+    icon: (
+      <SvgIcon fontSize="small">
+        <XCircleIcon />
+      </SvgIcon>
+    )
+  },
 ];
