@@ -71,13 +71,13 @@ export const SideNav = (props) => {
                 color="inherit"
                 variant="subtitle1"
               >
-                Devias
+                Teacher
               </Typography>
               <Typography
                 color="neutral.400"
                 variant="body2"
               >
-                Production
+                Dashboard
               </Typography>
             </div>
             <SvgIcon
@@ -130,7 +130,7 @@ export const SideNav = (props) => {
             py: 3
           }}
         >
-          <Typography
+          {/* <Typography
             color="neutral.100"
             variant="subtitle2"
           >
@@ -172,7 +172,7 @@ export const SideNav = (props) => {
             variant="contained"
           >
             Pro Live Preview
-          </Button>
+          </Button> */}
         </Box>
       </Box>
     </Scrollbar>

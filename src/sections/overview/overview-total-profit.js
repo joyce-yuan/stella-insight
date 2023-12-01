@@ -15,7 +15,7 @@ export const OverviewTotalProfit = (props) => {
           spacing={3}
         >
           <Stack spacing={1}>
-            <Typography
+            {/* <Typography
               color="text.secondary"
               variant="overline"
             >
@@ -23,7 +23,7 @@ export const OverviewTotalProfit = (props) => {
             </Typography>
             <Typography variant="h4">
               {value}
-            </Typography>
+            </Typography> */}
           </Stack>
           <Avatar
             sx={{

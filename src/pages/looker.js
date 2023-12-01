@@ -9,7 +9,7 @@ const Page = () => (
     <>
       <Head>
         <title>
-          Account | Devias Kit
+          Looker | Stellar Insights
         </title>
       </Head>
       <Box
@@ -23,7 +23,7 @@ const Page = () => (
           <Stack spacing={3}>
             <div>
               <Typography variant="h4">
-                Account
+                Looker
               </Typography>
             </div>
             <div>

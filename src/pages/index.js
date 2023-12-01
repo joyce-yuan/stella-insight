@@ -17,7 +17,7 @@ const Page = () => (
   <>
     <Head>
       <title>
-        Overview | Devias Kit
+        Overview | Stellar Insights
       </title>
     </Head>
     <Box
@@ -41,7 +41,7 @@ const Page = () => (
               difference={12}
               positive
               sx={{ height: '100%' }}
-              value="$24k"
+              value="80%"
             />
           </Grid>
           <Grid
@@ -50,10 +50,10 @@ const Page = () => (
             lg={3}
           >
             <OverviewTotalCustomers
-              difference={16}
+              difference={0}
               positive={false}
               sx={{ height: '100%' }}
-              value="1.6k"
+              value="20"
             />
           </Grid>
           <Grid
@@ -71,10 +71,10 @@ const Page = () => (
             sm={6}
             lg={3}
           >
-            <OverviewTotalProfit
+            {/* <OverviewTotalProfit
               sx={{ height: '100%' }}
               value="$15k"
-            />
+            /> */}
           </Grid>
           <Grid
             xs={12}
@@ -105,7 +105,7 @@ const Page = () => (
               sx={{ height: '100%' }}
             />
           </Grid>
-          <Grid
+          {/* <Grid
             xs={12}
             md={6}
             lg={4}
@@ -216,7 +216,7 @@ const Page = () => (
               ]}
               sx={{ height: '100%' }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Box>
