@@ -57,7 +57,7 @@ to save more time and design efforts :)
 Within the download you'll find the following directories and files:
 
 ```
-material-kit-react
+stella-insights
 
 ┌── .eslintrc.json
 ├── .gitignore
