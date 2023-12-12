@@ -176,6 +176,86 @@ app.get('/misconceptions',  async (req, res) =>{
 //       });
 //   };
 
+// gets the list of student names from the google sheet
+app.get('/student-list',  async (request, response) =>{
+  const auth = new google.auth.GoogleAuth({
+      keyFile: "key.json", //the key file
+      //url to spreadsheets API
+      scopes: "https://www.googleapis.com/auth/spreadsheets", 
+});
+
+  //Auth client Object
+  const authClientObject = await auth.getClient();
+
+  //Google sheets instance
+  const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
+
+  // spreadsheet id
+  const spreadsheetId = "1AnaEwL5IJB9q4zBn2c3wgwFkobVV1dWiG8SAsiHt2uc";
+
+  //Read from the spreadsheet
+  const readData = await googleSheetsInstance.spreadsheets.values.get({
+    auth, //auth object
+    spreadsheetId, // spreadsheet id
+    range: "StudentConversation!A2:A", //range of cells to read from.
+  })
+
+  response.send(readData.data.values);
+});
+
+app.post('/completion',  async (req, res) =>{
+  const {messages} = req.body;
+  console.log("we here: ", req);
+  // make chatGPT call
+  await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: messages
+    }),
+  })
+    .then((data) => data.json())
+    .then((data) => {
+      console.log(data.choices[0].message.content);
+      res.send(data.choices[0].message.content);
+    })
+    .catch((err) => {res.send(err)});
+})
+
+app.get('/student-chat',  async (request, response) =>{
+
+  const id = request.query.id;
+  console.log("entered student chat with id: ", id);
+
+  const auth = new google.auth.GoogleAuth({
+      keyFile: "key.json", //the key file
+      //url to spreadsheets API
+      scopes: "https://www.googleapis.com/auth/spreadsheets", 
+});
+
+  //Auth client Object
+  const authClientObject = await auth.getClient();
+
+  //Google sheets instance
+  const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
+
+  // spreadsheet id
+  const spreadsheetId = "1AnaEwL5IJB9q4zBn2c3wgwFkobVV1dWiG8SAsiHt2uc";
+
+  //Read from the spreadsheet
+  const row = Number(id) + 2;
+  const readData = await googleSheetsInstance.spreadsheets.values.get({
+    auth, //auth object
+    spreadsheetId, // spreadsheet id
+    range: 'StudentConversation!B'+row+':B'+row, //range of cells to read from.
+  })
+  console.log(readData.data.values);
+  response.send(readData.data.values);
+});
 
 app.listen(8000, () => {
     console.log(`Server is running on port 8000.`);
