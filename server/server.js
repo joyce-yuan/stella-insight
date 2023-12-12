@@ -140,6 +140,47 @@ app.get('/misconceptions',  async (req, res) =>{
       .catch((err) => {res.send(err)});
     // res.json({ message: "done" });
 });
+
+
+app.get('/transcripts',  async (req, res) =>{
+  // auth client object
+  const auth = new google.auth.GoogleAuth({
+      keyFile: "key.json", //the key file
+      //url to spreadsheets API
+      scopes: "https://www.googleapis.com/auth/spreadsheets", 
+  });
+
+  //Auth client Object
+  const authClientObject = await auth.getClient();
+
+  //Google sheets instance
+  const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
+
+  // spreadsheet id
+  const spreadsheetId = "1AnaEwL5IJB9q4zBn2c3wgwFkobVV1dWiG8SAsiHt2uc";
+
+  //Read from the spreadsheet
+  const readData = await googleSheetsInstance.spreadsheets.values.get({
+      auth, //auth object
+      spreadsheetId, // spreadsheet id
+      range: "StudentConversation!A2:B", //range of cells to read from.
+  })
+
+  const conversations = readData.data.values;
+  // const sortedConvos = conversations.sort((a, b) => a[0].localeCompare(b[0]));
+  const result = {};
+
+  conversations.forEach(([key, value]) => {
+    messages = value.split('\n')
+    if (result[key]) {
+      result[key].push(messages);
+    } else {
+      result[key] = [messages];
+    }
+  });
+  res.send(Object.entries(result));
+  // res.send(conversations)
+});
 // const handleSubmit = async () => {
 //     const prompt = {
 //       role: "user",
