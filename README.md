@@ -1,56 +1,30 @@
-## [Material Kit - React](https://material-kit-react.devias.io/) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=%F0%9F%9A%A8Devias%20Freebie%20Alert%20-%20An%20awesome%20ready-to-use%20register%20page%20made%20with%20%23material%20%23react%0D%0Ahttps%3A%2F%2Fdevias.io%20%23createreactapp%20%23devias%20%23material%20%23freebie%20%40devias-io)
+# Stella's Insights Dashboard
+Stella's Insights Dashboard is a teacher analytics dashboard meant to be paired with the AppInventor App: ![Stella]( https://gallery.appinventor.mit.edu/?galleryid=d9837487-26ab-4df1-8ad6-47885a19a945). 
+
+## Implementation
+Stella's Insights Dashboard is a ReactJS App with a NodeJS server that uses Google Sheets as a backend. We use the [Material Kit - React](https://material-kit-react.devias.io/) as a starting point towards building the dashboard. 
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 [![Material Kit - React](https://github.com/devias-io/material-kit-react/blob/main/public/assets/thumbnail.png)](https://material-kit-react.devias.io/)
 
-> Free React Admin Dashboard made with [MUI's](https://mui.com/?ref=devias-io)
-> components, [React](https://reactjs.org/?ref=devias-io) and of
-> course [Next.js](https://github.com/vercel/next.js/?ref=devias-io) to boost your app development
-> process!
 
-## Demo
+## Getting Started Locally
+- first, you will need both a [Google Workspace with the Google Sheets API](https://developers.google.com/workspace/guides/get-started) and an [OpenAI API Key](https://platform.openai.com/docs/introduction).
 
-- [Dashboard Page](https://material-kit-react.devias.io)
-- [Companies Page](https://material-kit-react.devias.io/companies)
-- [Customers Page](https://material-kit-react.devias.io/customers)
-- [Account Page](https://material-kit-react.devias.io/account)
-- [Settings Page](https://material-kit-react.devias.io/settings)
-- [Login Page](https://material-kit-react.devias.io/auth/login)
-- [Register Page](https://material-kit-react.devias.io/auth/register)
+	- download the Google Sheets API credentials and add it as `key.json` in the `server` folder
 
-## Free Figma Community File
+	- create a `.env` file in the `server` folder and insert your OpenAI API key as `REACT_APP_OPENAI_API_KEY="insert_key_here`
 
-- [Duplicate File](https://www.figma.com/community/file/1039837897183395483/Devias-Dashboard-Design-Library-Kit)
-
-## Upgrade to PRO Version
-
-We also have a pro version of this product which bundles even more pages and components if you want
-to save more time and design efforts :)
-
-| Free Version (this one) | [Material Kit Pro - React](https://mui.com/store/items/devias-kit-pro/)  |
-|-------------------------|:-------------------------------------------------------------------------|
-| **9** Demo Pages        | **40+** demo pages                                                       
-| ✔ Mocked Authentication | ✔ Authentication with **Amplify**, **Auth0**, **JWT** and **Firebase**   
-| -                       | ✔ Dark & light mode                                                      
-| -                       | ✔ CRA version                                                            
-| -                       | ✔ TypeScript version - for Standard Plus and Extended license            
-| -                       | ✔ Design files (sketch & figma) - for Standard Plus and Extended license 
-| -                       | ✔ Complete users flows                                                   
-
-## Quick start
-
-- [Download from Github](https://github.com/devias-io/material-kit-react/archive/master.zip)
-  or [Download from Devias](https://devias.io/products/material-kit-react) or clone the
-  repo: `git clone https://github.com/devias-io/material-kit-react.git`
+- repo: `git clone https://github.com/joyce-yuan/stella-insight.git`
 
 - Make sure your Node.js and npm versions are up to date for `React 18`
 
 - Install dependencies: `npm install` or `yarn`
 
-- Start the server: `npm run dev` or `yarn dev`
+- Start the React app: `npm run dev` or `yarn dev` in the root directory, views are on `localhost:3000`
 
-- Views are on: `localhost:3000`
+- Start the Node JS server: `npm run dev` or `yarn dev` in the `server` directory, server runs on `localhost:8000`
 
 ## File Structure
 
@@ -92,18 +66,8 @@ stella-insights
 			└── register.js
 ```
 
-## Resources
-
-- More freebies like this one: <https://devias.io>
-
-## Reporting Issues:
-
-- [Github Issues Page](https://github.com/devias-io/react-material-dashboard/issues?ref=devias-io)
 
 ## License
 
 - Licensed under MIT (https://github.com/devias-io/react-material-dashboard/blob/master/LICENSE.md)
 
-## Contact Us
-
-- Email Us: support@deviasio.zendesk.com
