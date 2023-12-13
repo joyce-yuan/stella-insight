@@ -28,6 +28,7 @@ import {
 } from '@mui/material';
 import { Scrollbar } from 'src/components/scrollbar';
 import { getInitials } from 'src/utils/get-initials';
+import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
 
 const now = new Date();
 
@@ -67,11 +68,20 @@ const useCustomerIds = (customers) => {
 };
 
 const getChat = async (id) => {
+  let result = {};
   const res = await fetch("http://localhost:8000/student-chat?id=" + id);
   await res.json().then((res) => {
     console.log(res);
-    // return res[0].split("\n");
+    const conversations = res;
+    // const sortedConvos = conversations.sort((a, b) => a[0].localeCompare(b[0]));
+  
+    conversations.forEach(([key, value]) => {
+      console.log(key, value);
+      result = key.split('\n')
+    });
+    console.log(result);
   });
+  return result;
 }
 const Page = () => {
 //   const [page, setPage] = useState(0);
@@ -80,6 +90,7 @@ const Page = () => {
 
   const [data, setData] = useState([]);
   const [chatMode, setChatMode] = useState(false);
+  const [studentName, setStudentName] = useState("");
   const [chat, setChat] = useState([]);
   // const customersIds = useCustomerIds(data);
   // const customersSelection = useSelection(customersIds);
@@ -210,6 +221,7 @@ const Page = () => {
             /> */}
 
             <Scrollbar>
+              {!chatMode ? 
                     <Box sx={{ minWidth: 800 }}>
                       <Table>
                         <TableHead>
@@ -281,7 +293,14 @@ const Page = () => {
                                       </SvgIcon>
                                     )}
                                     variant="contained"
-                                    onClick={async ()=>{getChat(student.id)}}>
+                                    onClick={async ()=>{
+                                      getChat(student.id)
+                                      .then((res)=>{
+                                        console.log(res);
+                                        setChat(res);
+                                        setStudentName(student.name);
+                                        setChatMode(true);
+                                      })}}>
                                       View Chat
                                   </Button>
                                 </TableCell>
@@ -291,6 +310,45 @@ const Page = () => {
                         </TableBody>
                       </Table>
                     </Box>
+              :  <Box sx={{ minWidth: 800 }}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                    <Button startIcon={(<SvgIcon fontSize="small">
+                                <ArrowLeftIcon /></SvgIcon>
+                            )}
+                            variant="contained"
+                            onClick={()=>{
+                                setChatMode(false);
+                              }}>
+                              Go Back
+                          </Button>
+                          <Typography variant="h4">
+                      {studentName}
+                        </Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {chat.map((message, ind) => {
+                    return (
+                      <TableRow
+                        hover
+                        key={ind}
+                        // selected={isSelected}
+                      >
+                        <TableCell style={{ backgroundColor: ind%2==1 ? "white" : "lightblue" }}>
+                            <Typography variant="subtitle2">
+                              {message}
+                            </Typography>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </Box>} 
                   </Scrollbar>
             
           </Stack>

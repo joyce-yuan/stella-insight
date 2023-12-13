@@ -23,11 +23,11 @@ const Page = () => (
           <Stack spacing={3}>
             <div>
               <Typography variant="h4">
-                Looker
+                Looker Analytics
               </Typography>
             </div>
             <div>
-            <Iframe width="80%" height="700" 
+            <Iframe width="100%" height="800" 
             url="https://lookerstudio.google.com/embed/reporting/18cf6d71-3714-4cad-9232-42ce39299c54/page/Mu1hD" 
             frameborder="0" 
             style="border:0" allowfullscreen

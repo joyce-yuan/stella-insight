@@ -178,6 +178,7 @@ app.get('/transcripts',  async (req, res) =>{
       result[key] = [messages];
     }
   });
+  console.log(result);
   res.send(Object.entries(result));
   // res.send(conversations)
 });

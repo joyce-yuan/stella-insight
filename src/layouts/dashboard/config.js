@@ -18,15 +18,15 @@ export const items = [
       </SvgIcon>
     )
   },
-  {
-    title: 'Customers',
-    path: '/customers',
-    icon: (
-      <SvgIcon fontSize="small">
-        <UsersIcon />
-      </SvgIcon>
-    )
-  },
+  // {
+  //   title: 'Customers',
+  //   path: '/customers',
+  //   icon: (
+  //     <SvgIcon fontSize="small">
+  //       <UsersIcon />
+  //     </SvgIcon>
+  //   )
+  // },
   {
     title: 'Students',
     path: '/students',
@@ -101,7 +101,7 @@ export const items = [
     )
   },*/
   {
-    title: 'Looker',
+    title: 'Looker Analytics',
     path: '/looker',
     icon: (
       <SvgIcon fontSize="small">
@@ -109,13 +109,13 @@ export const items = [
       </SvgIcon>
     )
   },
-  {
-    title: 'Chat',
-    path: '/chat',
-    icon: (
-      <SvgIcon fontSize="small">
-        <UserIcon />
-      </SvgIcon>
-    )
-  },
+  // {
+  //   title: 'Chat',
+  //   path: '/chat',
+  //   icon: (
+  //     <SvgIcon fontSize="small">
+  //       <UserIcon />
+  //     </SvgIcon>
+  //   )
+  // },
 ];
