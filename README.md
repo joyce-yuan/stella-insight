@@ -1,5 +1,5 @@
 # Stella's Insights Dashboard
-Stella's Insights Dashboard is a teacher analytics dashboard meant to be paired with the AppInventor App: ![Stella](https://gallery.appinventor.mit.edu/?galleryid=d9837487-26ab-4df1-8ad6-47885a19a945).
+Stella's Insights Dashboard is a teacher analytics dashboard meant to be paired with the AppInventor App: [Stella](https://gallery.appinventor.mit.edu/?galleryid=d9837487-26ab-4df1-8ad6-47885a19a945).
 
 ## Demo
 Find the video explanation [here](https://drive.google.com/file/d/12TxurbUTJcVo4gkCpqx5UnpkWco_GN0k/view?usp=sharing)
